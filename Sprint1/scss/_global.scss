@@ -1,0 +1,160 @@
+
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+
+
+// Reset
+* {
+	margin: 0;
+	padding: 0;
+    border: 0;
+    font-family: avenir-reg;
+    font-weight: 100;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    color: $primary-text;
+}
+
+
+.site__container {
+    padding: 1.5rem 1rem;
+
+    @include mediaQ(768px){
+        padding: 2rem 1.5rem;
+    }
+
+    @include mediaQ(1200px){
+        padding: 2rem 6rem;
+    }
+}
+
+
+
+
+// header
+header {
+    background-color: $primary-bckgrnd;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    // padding-top: 0.875rem;
+
+    @include mediaQ(768px){
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+.main-nav {
+    @include mediaQ(768px){
+        display: flex;
+        align-items: flex-end;
+    }
+    ul {
+        display: flex;
+    }
+    li {
+        width: 50%;
+        text-align: center;
+        padding-bottom: 11px;
+
+        @include mediaQ(768px){
+            width: 100%;
+            margin-right: 3.5rem;
+            padding-bottom: 1.625rem;
+        }
+    }
+    a {
+        color: $labels-text;
+    }
+
+}
+
+.active {
+    border-bottom: 4px solid white;
+
+    a {
+        color: $secondary-text;
+    }
+}
+
+.main-logo {
+    margin-bottom: 0.75rem;
+
+    @include mediaQ(768px){
+        margin: 0 3.5rem 0 1.5rem;
+    }
+
+    @include mediaQ(1200px){
+        margin: 0 3.5rem 0 6rem;
+    }
+}
+
+
+// Footer
+footer {
+    background-color: $primary-bckgrnd;
+    * {
+        color: $secondary-text;
+    }
+}
+
+.contact {
+    margin-bottom: 1.75rem;
+
+    &__header {
+        @include mediaQ(768px){
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        }
+    }
+
+    &__heading-socials {
+        @include mediaQ(768px){
+            display: flex;
+            align-items: baseline;
+        }
+    }
+
+    &__heading {
+        @include mediaQ(768px){
+            margin-right: 5rem;
+        }
+    }
+
+    &__socials {
+        margin-bottom: 1.5rem;
+    
+        img {
+            margin-right: 2rem;
+        }
+    }
+
+    &__main-logo {
+    display: none;
+
+        @include mediaQ(768px){
+            display: flex;
+        }
+    }
+
+    &__container {
+        @include mediaQ(768px){
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__name {
+        margin-bottom: 0.75rem;
+    }
+
+    &__address {
+        margin-bottom: 0.75rem;
+
+    }
+}

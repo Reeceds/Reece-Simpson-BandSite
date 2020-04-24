@@ -1,0 +1,145 @@
+
+// 320px
+// 768px
+// 1200px
+
+@import 'global';
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+
+// Herro
+.hero {
+    background-image: url('../assets/Images/jr-korpa-9XngoIpxcEo-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 11.4375rem;
+    display: flex;
+    align-items: center;
+    
+    @include mediaQ(768px){
+        height: 25rem;
+    }
+
+    @include mediaQ(1200px){
+        height: 41.875rem;
+    }
+}
+
+.hero__text {
+    color: $secondary-text;
+    width: 70%;
+
+    @include mediaQ(768px) {
+        width: 70%;
+    }
+
+    @include mediaQ(1200px){
+        width: 60%;
+    }
+}
+
+
+// About
+.about {
+    background-color: $secondary-bckgrnd;
+
+    &__image {
+        width: 100%;
+        margin-bottom: 1rem;
+        height: 40vw;
+        min-height: 9rem;        
+        background-image: url('../assets/Images/vaishnav-chogale-sJHHlLFVPoc-unsplash.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        background-size: cover;
+
+        @include mediaQ(768px){
+            min-height: 22.625rem;
+        }
+
+        @include mediaQ(1200px){
+            height: 28.125rem;
+        }
+    }
+
+    &__quote {
+        margin-bottom: 1rem;
+    }
+
+    &__reference {
+        margin-bottom: 1.25rem;
+    }
+
+    &__title {
+        margin-bottom:0.5rem;
+    }
+
+    &__text {
+        @include mediaQ(768px){
+         display: flex;  
+         justify-content: space-between;
+        }
+    }
+
+    &__text p {
+        margin-bottom: 1rem;
+
+        @include mediaQ(768px){
+            width: 48%;
+           }
+           
+        @include mediaQ(1200px){
+            width: 26.25rem;
+            margin-right: 2.5rem;
+        }
+    }
+}
+
+.about__container {
+    @include mediaQ(1200px) {
+        width: 56rem;
+        margin: 0 auto;
+    }
+}
+
+
+
+// Gallery
+.gallery {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @include mediaQ(768px){
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    img {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        @include mediaQ(768px){
+            margin-bottom: 1.5rem;
+            width: 31.5%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
