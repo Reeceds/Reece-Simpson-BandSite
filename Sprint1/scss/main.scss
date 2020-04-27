@@ -1,42 +1,47 @@
 
-// 320px
-// 768px
-// 1200px
-
 @import 'global';
 @import 'variables';
 @import 'mixins';
 @import 'typography';
 
+
 // Herro
 .hero {
     background-image: url('../assets/Images/jr-korpa-9XngoIpxcEo-unsplash.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    @include bckgrnd__img;
     height: 11.4375rem;
     display: flex;
     align-items: center;
+    padding: 0 1rem;
     
-    @include mediaQ(768px){
+    @include mediaQ($tablet-width){
         height: 25rem;
+        padding: 0 1.5rem;
     }
 
-    @include mediaQ(1200px){
+    @include mediaQ($desktop-width){
         height: 41.875rem;
     }
-}
 
-.hero__text {
-    color: $secondary-text;
-    width: 70%;
-
-    @include mediaQ(768px) {
+    &__text {
+        color: $secondary-text;
         width: 70%;
+    
+        @include mediaQ($desktop-width){
+            width: 60%;
+        }
     }
 
-    @include mediaQ(1200px){
-        width: 60%;
+    &__container {
+
+        @include mediaQ($tablet-width){
+            width: 1040px;
+            margin: $center-content;
+        }
+    
+        @include mediaQ($desktop-width){
+            width: 1088px;
+        }
     }
 }
 
@@ -45,22 +50,31 @@
 .about {
     background-color: $secondary-bckgrnd;
 
+    &__container {
+        @include mediaQ($tablet-width) {
+            max-width: 56rem;
+            margin: $center-content;
+        }
+
+        @include mediaQ($desktop-width) {
+            width: 56rem;
+            margin: $center-content;
+        }
+    }
+
     &__image {
         width: 100%;
         margin-bottom: 1rem;
         height: 40vw;
         min-height: 9rem;        
         background-image: url('../assets/Images/vaishnav-chogale-sJHHlLFVPoc-unsplash.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        background-size: cover;
+        @include bckgrnd__img;
 
-        @include mediaQ(768px){
+        @include mediaQ($tablet-width){
             min-height: 22.625rem;
         }
 
-        @include mediaQ(1200px){
+        @include mediaQ($desktop-width){
             height: 28.125rem;
         }
     }
@@ -78,7 +92,7 @@
     }
 
     &__text {
-        @include mediaQ(768px){
+        @include mediaQ($tablet-width){
          display: flex;  
          justify-content: space-between;
         }
@@ -87,24 +101,15 @@
     &__text p {
         margin-bottom: 1rem;
 
-        @include mediaQ(768px){
+        @include mediaQ($tablet-width){
             width: 48%;
            }
            
-        @include mediaQ(1200px){
+        @include mediaQ($desktop-width){
             width: 26.25rem;
-            margin-right: 2.5rem;
         }
     }
 }
-
-.about__container {
-    @include mediaQ(1200px) {
-        width: 56rem;
-        margin: 0 auto;
-    }
-}
-
 
 
 // Gallery
@@ -113,7 +118,7 @@
     flex-direction: column;
     flex-wrap: wrap;
 
-    @include mediaQ(768px){
+    @include mediaQ($tablet-width){
         flex-direction: row;
         justify-content: space-between;
     }
@@ -122,7 +127,7 @@
         width: 100%;
         margin-bottom: 1rem;
 
-        @include mediaQ(768px){
+        @include mediaQ($tablet-width){
             margin-bottom: 1.5rem;
             width: 31.5%;
         }
