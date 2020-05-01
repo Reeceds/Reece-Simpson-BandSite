@@ -1,0 +1,49 @@
+
+@import 'global';
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+
+// Hero
+.hero-shows {
+    @include hero;
+    background-image: url('../assets/Images/retro-4237850_1920.jpg');
+    height: 29.5rem;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mediaQ($tablet-width){
+        height: 41.875rem;
+    }
+
+    &__text{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__text--small {
+        color: $secondary-text;
+    }
+
+    &__text--large {
+        color: $secondary-text;
+
+        @include mediaQ($tablet-width){
+            width: 37.5rem;
+        }
+    }
+}
+
+.song {
+    width: 100%;
+    height: 9.125rem;
+
+    &__container {
+        max-width: 27.25rem;
+
+        @include mediaQ($desktop-width){
+            width: 27.25rem;
+            line-height: 4.5rem;
+        }
+    }
+}

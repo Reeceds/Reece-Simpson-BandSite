@@ -1,0 +1,29 @@
+@mixin mediaQ($size) {
+    @media screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin bckgrnd__img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+@mixin desktop--center {
+    width: 68rem;
+    margin: 0 auto;
+}
+
+@mixin max-desktop--center {
+    max-width: 68rem;
+    margin: 0 auto;
+}
+
+@mixin hero {
+    @include bckgrnd__img;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}

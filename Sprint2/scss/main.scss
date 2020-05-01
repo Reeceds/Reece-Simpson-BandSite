@@ -1,0 +1,133 @@
+
+@import 'global';
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+
+
+// Hero
+.hero-homepage {
+    background-image: url('../assets/Images/jr-korpa-9XngoIpxcEo-unsplash.jpg');
+    height: 11.4375rem;
+
+    @include mediaQ($tablet-width){
+        height: 25rem;
+    }
+
+    @include mediaQ($desktop-width){
+        height: 41.875rem;
+    }
+
+    &__text {
+        color: $secondary-text;
+        width: 70%;
+    
+        @include mediaQ($tablet-width){
+            width: 33.75rem;
+        }
+    }
+}
+
+
+// About
+.about {
+    background-color: $secondary-bckgrnd;
+
+    &__container {
+        @include mediaQ($tablet-width) {
+            max-width: 56rem;
+            margin: $center-content;
+        }
+
+        @include mediaQ($desktop-width) {
+            width: 56rem;
+            margin: $center-content;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        margin-bottom: 1rem;
+        height: 40vw;
+        min-height: 9rem;        
+        background-image: url('../assets/Images/vaishnav-chogale-sJHHlLFVPoc-unsplash.jpg');
+        @include bckgrnd__img;
+
+        @include mediaQ($tablet-width){
+            min-height: 22.625rem;
+        }
+
+        @include mediaQ($desktop-width){
+            height: 28.125rem;
+        }
+    }
+
+    &__quote {
+        margin-bottom: 1rem;
+    }
+
+    &__reference {
+        margin-bottom: 1.25rem;
+    }
+
+    &__title {
+        margin-bottom:0.5rem;
+    }
+
+    &__text {
+        @include mediaQ($tablet-width){
+         display: flex;  
+         justify-content: space-between;
+        }
+    }
+
+    &__text p {
+        margin-bottom: 1rem;
+
+        @include mediaQ($tablet-width){
+            width: 48%;
+           }
+           
+        @include mediaQ($desktop-width){
+            width: 26.25rem;
+        }
+    }
+}
+
+
+// Gallery
+.gallery {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @include mediaQ($tablet-width){
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    img {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        @include mediaQ($tablet-width){
+            margin-bottom: 1.5rem;
+            width: 31.5%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
