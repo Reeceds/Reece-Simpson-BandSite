@@ -7,3 +7,34 @@ let shows = [
     {date: 'Wed Aug 11 2019', venue: 'Pres Club', location: 'San Fancisco, CA'},
 ]
 
+let showsContainer = document.querySelector('.shows__container');
+
+//Load shows
+let uploadShows = () => {
+    shows.forEach(obj => {
+        if (obj.date && obj.venue && obj.location) {
+            let showsContent =
+            `<div class="shows-details">
+                    <div class="shows-date">
+                        <h5>DATE</h5>
+                        <h4>${obj.date}</h4>
+                    </div>
+                    <div class="shows-venue">
+                        <h5>VENUE</h5>
+                        <p>${obj.vanue}</p>
+                    </div>
+                    <div class="shows-location">
+                        <h5>FGDGG</h5>
+                        <p>${obj.location}</p>
+                    </div>
+                    <form class="shows-buy-tickets">
+                        <button class="shows-button"><h2>BUY TICKETS</h2></button>
+                    </form>
+            </div>`
+            
+            showsContainer.innerHTML += showsContent;
+        }
+    })
+}
+
+uploadShows()

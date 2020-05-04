@@ -31,8 +31,6 @@
 
 // About
 .about {
-    background-color: $secondary-bckgrnd;
-
     &__container {
         @include mediaQ($tablet-width) {
             max-width: 56rem;
@@ -97,24 +95,118 @@
 
 // Gallery
 .gallery {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    background-color: $secondary-bckgrnd;
 
-    @include mediaQ($tablet-width){
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    img {
-        width: 100%;
-        margin-bottom: 1rem;
-
+    &__images{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    
         @include mediaQ($tablet-width){
-            margin-bottom: 1.5rem;
-            width: 31.5%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    
+        img {
+            width: 100%;
+            margin-bottom: 1rem;
+    
+            @include mediaQ($tablet-width){
+                margin-bottom: 1.5rem;
+                width: 31.5%;
+            }
         }
     }
+}
+
+
+// Comments section
+input, textarea {
+    background-color: $form-input;
+}
+
+.comment__section__container {
+    display: flex;
+    max-width: 33rem;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+
+.comment__form {
+    display: flex;
+    flex-direction: column;
+
+    input, textarea {
+        border: 0.5px solid black;
+        border-radius: 4px;
+        margin-bottom: 1.25rem;
+        padding: 1REM;
+    }
+
+    &-image__container {
+        display: flex;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $divider;
+    }
+
+    &__container {
+        flex-grow: 2;
+    }
+
+    &__button {
+        background-color: $primary-bckgrnd;
+        padding: 1rem;
+        border-radius: 4px;
+
+        @include mediaQ($tablet-width){
+            width: 10rem;
+            align-self: flex-end;
+            height: 3rem;
+
+
+            h2 {
+                font-size: 1rem;
+                line-height: 0;
+            }
+        }
+
+        h2 {
+            color: $secondary-text;
+        }
+    }
+
+    label {
+        margin-bottom: 0.25rem;
+    }
+}
+
+.comment__image {
+    width: 3rem;
+    height: 3rem;
+    background-color: grey;
+    margin-right: 1.25rem;
+    border-radius: 100%;
+      
+}
+
+.comment-new {
+    display: flex;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $divider;
+
+}
+
+.comment-name-date {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.comment-data {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
 }
 
 
