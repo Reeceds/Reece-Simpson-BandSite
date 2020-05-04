@@ -24,7 +24,7 @@ let uploadShows = () => {
                         <p>${obj.vanue}</p>
                     </div>
                     <div class="shows-location">
-                        <h5>FGDGG</h5>
+                        <h5>LOCATION</h5>
                         <p>${obj.location}</p>
                     </div>
                     <form class="shows-buy-tickets">
