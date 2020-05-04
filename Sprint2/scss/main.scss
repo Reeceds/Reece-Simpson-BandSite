@@ -121,94 +121,99 @@
 
 
 // Comments section
-input, textarea {
-    background-color: $form-input;
-}
 
-
-.comment__section__container {
-    display: flex;
-    max-width: 33rem;
-    margin: 0 auto;
-    flex-direction: column;
-}
-
-
-.comment__form {
-    display: flex;
-    flex-direction: column;
+.comment {
 
     input, textarea {
-        border: 0.5px solid black;
-        border-radius: 4px;
-        margin-bottom: 1.25rem;
-        padding: 1REM;
+        background-color: $form-input;
     }
 
-    &-image__container {
+    &__section__container {
         display: flex;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid $divider;
+        max-width: 33rem;
+        margin: 0 auto;
+        flex-direction: column;
     }
 
-    &__container {
+    &__form {
+        display: flex;
+        flex-direction: column;
+    
+        input, textarea {
+            border: 0.5px solid black;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+            padding: 1REM;
+        }
+    
+        &-image__container {
+            display: flex;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid $divider;
+        }
+    
+        &__container {
+            flex-grow: 2;
+        }
+    
+        &__button {
+            background-color: $primary-bckgrnd;
+            padding: 1rem;
+            border-radius: 4px;
+    
+            @include mediaQ($tablet-width){
+                width: 10rem;
+                align-self: flex-end;
+                height: 3rem;
+    
+    
+                h2 {
+                    font-size: 1rem;
+                    line-height: 0;
+                }
+            }
+    
+            h2 {
+                color: $secondary-text;
+            }
+        }
+    
+        label {
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    &__image {
+        width: 3rem;
+        height: 3rem;
+        background-color: grey;
+        margin-right: 1.25rem;
+        border-radius: 100%;
+          
+    }
+
+    &-new {
+        display: flex;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid $divider;
+    
+    }
+
+    &-name-date {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    &-data {
+        display: flex;
+        flex-direction: column;
         flex-grow: 2;
     }
 
-    &__button {
-        background-color: $primary-bckgrnd;
-        padding: 1rem;
-        border-radius: 4px;
-
-        @include mediaQ($tablet-width){
-            width: 10rem;
-            align-self: flex-end;
-            height: 3rem;
-
-
-            h2 {
-                font-size: 1rem;
-                line-height: 0;
-            }
-        }
-
-        h2 {
-            color: $secondary-text;
-        }
-    }
-
-    label {
-        margin-bottom: 0.25rem;
-    }
 }
 
-.comment__image {
-    width: 3rem;
-    height: 3rem;
-    background-color: grey;
-    margin-right: 1.25rem;
-    border-radius: 100%;
-      
-}
 
-.comment-new {
-    display: flex;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid $divider;
-
-}
-
-.comment-name-date {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.comment-data {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 2;
-}
 
 
 

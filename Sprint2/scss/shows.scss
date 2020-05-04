@@ -79,18 +79,46 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            margin-bottom: 0;
+            padding: 0.75rem 0;
         }
     }
 
     h4, h5, p {
         margin-bottom: 0.75rem;
+
+        @include mediaQ($tablet-width){
+            margin-bottom: 0;
+        }
     }
 
     .shows-date, .shows-venue, .shows-location, .shows-buy-tickets {
         margin-bottom: 1.5rem;
+        width: 10rem;
+
+        @include mediaQ($tablet-width){
+            margin: 1rem 0;
+        }
     }
 
-    
+    &-date-title, .shows-venue-title, .shows-location-title {
+        @include mediaQ($tablet-width){
+            display: none;
+        }
+    }
+
+    &-headers {
+        display: none;
+
+        @include mediaQ($tablet-width){
+            display: flex;
+            justify-content: space-between;
+
+            h5 {
+                width: 10rem;
+            }
+        }
+    }
 
     &-button {
         width: 100%;

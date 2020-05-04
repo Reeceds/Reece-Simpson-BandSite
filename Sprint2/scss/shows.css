@@ -600,6 +600,8 @@ h5 {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    margin-bottom: 0;
+    padding: 0.75rem 0;
   }
 }
 
@@ -607,8 +609,45 @@ h5 {
   margin-bottom: 0.75rem;
 }
 
+@media screen and (min-width: 768px) {
+  .shows h4, .shows h5, .shows p {
+    margin-bottom: 0;
+  }
+}
+
 .shows .shows-date, .shows .shows-venue, .shows .shows-location, .shows .shows-buy-tickets {
   margin-bottom: 1.5rem;
+  width: 10rem;
+}
+
+@media screen and (min-width: 768px) {
+  .shows .shows-date, .shows .shows-venue, .shows .shows-location, .shows .shows-buy-tickets {
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shows-date-title, .shows .shows-venue-title, .shows .shows-location-title {
+    display: none;
+  }
+}
+
+.shows-headers {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .shows-headers {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .shows-headers h5 {
+    width: 10rem;
+  }
 }
 
 .shows-button {

@@ -11,25 +11,35 @@ let showsContainer = document.querySelector('.shows__container');
 
 //Load shows
 let uploadShows = () => {
+    let pageHeadings = 
+    `<div class=shows-headers>
+        <h5>DATE</h5>
+        <h5>VENUE</h5>
+        <h5>LOCATION</h5>
+        <h5></h5>
+    </div>`
+
+    showsContainer.innerHTML += pageHeadings;
+
     shows.forEach(obj => {
         if (obj.date && obj.venue && obj.location) {
             let showsContent =
             `<div class="shows-details">
-                    <div class="shows-date">
-                        <h5>DATE</h5>
-                        <h4>${obj.date}</h4>
-                    </div>
-                    <div class="shows-venue">
-                        <h5>VENUE</h5>
-                        <p>${obj.vanue}</p>
-                    </div>
-                    <div class="shows-location">
-                        <h5>LOCATION</h5>
-                        <p>${obj.location}</p>
-                    </div>
-                    <form class="shows-buy-tickets">
-                        <button class="shows-button"><h2>BUY TICKETS</h2></button>
-                    </form>
+                <div class="shows-date">
+                    <h5 class="shows-date-title">DATE</h5>
+                    <h4>${obj.date}</h4>
+                </div>
+                <div class="shows-venue">
+                    <h5 class="shows-venue-title">VENUE</h5>
+                    <p>${obj.venue}</p>
+                </div>
+                <div class="shows-location">
+                    <h5 class="shows-location-title">LOCATION</h5>
+                    <p>${obj.location}</p>
+                </div>
+                <form class="shows-buy-tickets">
+                    <button class="shows-button"><h2>BUY TICKETS</h2></button>
+                </form>
             </div>`
             
             showsContainer.innerHTML += showsContent;

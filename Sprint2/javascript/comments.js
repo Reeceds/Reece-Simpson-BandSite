@@ -62,5 +62,8 @@ userSubmit.addEventListener('click', e => {
     commentNewContainer.innerHTML = "";
 
     uploadComments()
+
+    userName.value = '';
+    userComment.value = '';
 })
 

@@ -620,7 +620,7 @@ h5 {
   }
 }
 
-input, textarea {
+.comment input, .comment textarea {
   background-color: #fafafa;
 }
 
