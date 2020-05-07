@@ -366,6 +366,22 @@ footer * {
   margin-bottom: 0.75rem;
 }
 
+.copyright {
+  margin-right: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .copyright-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 @font-face {
   font-family: avenir-reg;
   src: url("../assets/Fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf");
@@ -650,7 +666,12 @@ h5 {
   border: 0.5px solid black;
   border-radius: 4px;
   margin-bottom: 1.25rem;
-  padding: 1REM;
+  padding: 1rem;
+}
+
+.comment__form input:focus, .comment__form textarea:focus {
+  outline: none !important;
+  border: 2px solid #323232;
 }
 
 .comment__form-image__container {
@@ -665,6 +686,10 @@ h5 {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
+}
+
+.comment__form-avatar {
+  margin-top: 1.5rem;
 }
 
 .comment__form__button {
@@ -718,6 +743,23 @@ h5 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 1rem;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+@media screen and (min-width: 768px) {
+  .comment-name-date {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .comment-name {
+    margin-right: 0.75rem;
+  }
 }
 
 .comment-data {

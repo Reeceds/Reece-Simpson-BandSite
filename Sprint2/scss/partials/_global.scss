@@ -113,7 +113,6 @@ header {
 .hero {
     @include hero;
 
-
     @include mediaQ($tablet-width){
         padding: 0 1.5rem;
     }
@@ -194,3 +193,17 @@ footer {
         margin-bottom: 0.75rem;
     }
 }
+
+.copyright {
+
+    margin-right: 0.25rem;
+
+    &-text {
+        @include mediaQ($tablet-width){
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+}
+

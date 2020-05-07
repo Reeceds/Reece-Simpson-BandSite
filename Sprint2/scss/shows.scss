@@ -92,12 +92,22 @@
         }
     }
 
-    .shows-date, .shows-venue, .shows-location, .shows-buy-tickets {
+    .shows-date, .shows-venue, .shows-location {
         margin-bottom: 1.5rem;
         width: 10rem;
 
         @include mediaQ($tablet-width){
             margin: 1rem 0;
+        }
+    }
+
+    &-buy-tickets {
+        max-width: 20rem;
+        margin-bottom: 1rem;
+
+        @include mediaQ($tablet-width){
+            width: 10rem;
+            margin-bottom: 0;
         }
     }
 

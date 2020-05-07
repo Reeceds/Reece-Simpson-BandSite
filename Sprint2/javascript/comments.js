@@ -12,36 +12,64 @@ let commentNewContainer = document.querySelector(".comment__new__container");
 let submitButton = document.querySelector(".comment__form__button");
 let userName = document.querySelector('.comment__form-name');
 let userComment = document.querySelector('.comment__form-comment');
-let userSubmit = document.querySelector('.comment__form__button');
+let userSubmit = document.querySelector('.comment__form');
+
 
 
 //Preloaded comments
 let uploadComments = () => {
     userData.forEach(obj => {
         if (obj.name && obj.date && obj.comment) {
-            let commentContent =
-            `<div class="comment-new">
-                <div>
-                    <img class="comment__image">
-                </div>
-                <div class="comment-data">
-                    <div class="comment-name-date">
-                        <h4 class="comment-name">${obj.name}</h4>
-                        <h5 class="comment-date">${obj.date}</h5>
-                    </div>
-                    <p class="comment-text">${obj.comment}</p>
-                </div>
-            </div>`
-            commentNewContainer.innerHTML += commentContent;
-        }
+            
+            // Create container/class for each comment/details
+            let commentNew = document.createElement("div");
+            commentNew.classList.add("comment-new");
+            commentNewContainer.appendChild(commentNew);
+
+            // Creates image container and appends to parent
+            let commentImageContainer = document.createElement("div");
+            // Creates image and msrc
+            let commentImage = document.createElement("img");
+            commentImage.classList.add("comment__image");
+//  Image   // commentImage.src = "";
+            commentImageContainer.appendChild(commentImage);
+            commentNew.appendChild(commentImageContainer);
+
+            // Create details section
+            // Create data container
+            let commentDataContainer = document.createElement("div");
+            commentDataContainer.classList.add("comment-data");
+            commentNew.appendChild(commentDataContainer);
+            // Create name/date container
+            let commentNameDateContainer = document.createElement("div");
+            commentNameDateContainer.classList.add("comment-name-date")
+            commentDataContainer.appendChild(commentNameDateContainer);
+            // Create user Name
+            let commentUserName = document.createElement("h4");
+            commentUserName.classList.add("comment-name")
+            commentUserName.innerText = `${obj.name}`;
+            commentNameDateContainer.appendChild(commentUserName)
+            // Create date
+            let commentDate = document.createElement("h5");
+            commentDate.classList.add("comment-date")
+            commentDate.innerText = `${obj.date}`;
+            commentNameDateContainer.appendChild(commentDate)
+            // Create comment text
+            let commentText = document.createElement("p");
+            commentText.classList.add("comment-text");
+            commentText.innerText = `${obj.comment}`;
+            commentDataContainer.appendChild(commentText);
+}
     })
 }
 
 uploadComments()
 
 
+
+
 //Adds new comment
-userSubmit.addEventListener('click', e => {
+userSubmit.addEventListener('submit', e => {
     e.preventDefault();
     let passedName = userName.value;
     let passedComment = userComment.value;

@@ -366,6 +366,22 @@ footer * {
   margin-bottom: 0.75rem;
 }
 
+.copyright {
+  margin-right: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .copyright-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 @font-face {
   font-family: avenir-reg;
   src: url("../assets/Fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf");
@@ -615,14 +631,26 @@ h5 {
   }
 }
 
-.shows .shows-date, .shows .shows-venue, .shows .shows-location, .shows .shows-buy-tickets {
+.shows .shows-date, .shows .shows-venue, .shows .shows-location {
   margin-bottom: 1.5rem;
   width: 10rem;
 }
 
 @media screen and (min-width: 768px) {
-  .shows .shows-date, .shows .shows-venue, .shows .shows-location, .shows .shows-buy-tickets {
+  .shows .shows-date, .shows .shows-venue, .shows .shows-location {
     margin: 1rem 0;
+  }
+}
+
+.shows-buy-tickets {
+  max-width: 20rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .shows-buy-tickets {
+    width: 10rem;
+    margin-bottom: 0;
   }
 }
 
