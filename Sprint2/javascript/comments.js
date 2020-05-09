@@ -1,13 +1,5 @@
 
 
-let userData = [
-    {name: "Micheal Lyons", date: "12/18/2018", comment: "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed."},
-
-    {name: "Gary Wong", date: "12/12/2018", comment: "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!"},
-
-    {name: "Theodore Duncan", date: "11/15/2018", comment: "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!"},
-];
-
 let commentNewContainer = document.querySelector(".comment__new__container");
 let submitButton = document.querySelector(".comment__form__button");
 let userName = document.querySelector('.comment__form-name');
@@ -16,55 +8,78 @@ let userSubmit = document.querySelector('.comment__form');
 
 
 
-//Preloaded comments
-let uploadComments = () => {
-    userData.forEach(obj => {
-        if (obj.name && obj.date && obj.comment) {
-            
-            // Create container/class for each comment/details
-            let commentNew = document.createElement("div");
-            commentNew.classList.add("comment-new");
-            commentNewContainer.appendChild(commentNew);
+//Load premaid API comments to the page
+let uploadComments = (eachUser) => {
+    if (eachUser.name && eachUser.timestamp && eachUser.comment) {
+        
+        // Create container/class for each comment/details
+        let commentNew = document.createElement("div");
+        commentNew.classList.add("comment-new");
+        commentNewContainer.appendChild(commentNew);
 
-            // Creates image container and appends to parent
-            let commentImageContainer = document.createElement("div");
-            // Creates image and msrc
-            let commentImage = document.createElement("img");
-            commentImage.classList.add("comment__image");
-//  Image   // commentImage.src = "";
-            commentImageContainer.appendChild(commentImage);
-            commentNew.appendChild(commentImageContainer);
+        // Creates image container and appends to parent
+        let commentImageContainer = document.createElement("div");
+        // Creates image and msrc
+        let commentImage = document.createElement("img");
+        commentImage.classList.add("comment__image");
+//Image // commentImage.src = "";
+        commentImageContainer.appendChild(commentImage);
+        commentNew.appendChild(commentImageContainer);
 
-            // Create details section
-            // Create data container
-            let commentDataContainer = document.createElement("div");
-            commentDataContainer.classList.add("comment-data");
-            commentNew.appendChild(commentDataContainer);
-            // Create name/date container
-            let commentNameDateContainer = document.createElement("div");
-            commentNameDateContainer.classList.add("comment-name-date")
-            commentDataContainer.appendChild(commentNameDateContainer);
-            // Create user Name
-            let commentUserName = document.createElement("h4");
-            commentUserName.classList.add("comment-name")
-            commentUserName.innerText = `${obj.name}`;
-            commentNameDateContainer.appendChild(commentUserName)
-            // Create date
-            let commentDate = document.createElement("h5");
-            commentDate.classList.add("comment-date")
-            commentDate.innerText = `${obj.date}`;
-            commentNameDateContainer.appendChild(commentDate)
-            // Create comment text
-            let commentText = document.createElement("p");
-            commentText.classList.add("comment-text");
-            commentText.innerText = `${obj.comment}`;
-            commentDataContainer.appendChild(commentText);
+        // Create details section
+        // Create data container
+        let commentDataContainer = document.createElement("div");
+        commentDataContainer.classList.add("comment-data");
+        commentNew.appendChild(commentDataContainer);
+        // Create name/date container
+        let commentNameDateContainer = document.createElement("div");
+        commentNameDateContainer.classList.add("comment-name-date")
+        commentDataContainer.appendChild(commentNameDateContainer);
+        // Create user Name
+        let commentUserName = document.createElement("h4");
+        commentUserName.classList.add("comment-name")
+        commentUserName.innerText = `${eachUser.name}`;
+        commentNameDateContainer.appendChild(commentUserName)
+        // Create date
+        let newDate = new Date(eachUser.timestamp)
+        let dateConversion = (newDate.getMonth()+1) + '/' + newDate.getDate()+ '/' + newDate.getFullYear();
+        let commentDate = document.createElement("h5");
+        commentDate.classList.add("comment-date")
+        commentDate.innerText = `${dateConversion}`;
+        commentNameDateContainer.appendChild(commentDate)
+        // Create comment text
+        let commentText = document.createElement("p");
+        commentText.classList.add("comment-text");
+        commentText.innerText = `${eachUser.comment}`;
+        commentDataContainer.appendChild(commentText);
+    }
 }
-    })
-}
 
-uploadComments()
 
+
+// **************
+// Requests API comments
+
+let apiKey = "99510a2b-a1cf-4d45-8227-74f5e67d2ecd";
+
+let = requestComments = () => {
+
+  axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`)
+  .then(response => {
+    response.data.reverse().forEach(userData => {
+        uploadComments(userData);
+        console.log(response)
+        
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+};
+
+requestComments()
+
+// **************
 
 
 
@@ -73,25 +88,72 @@ userSubmit.addEventListener('submit', e => {
     e.preventDefault();
     let passedName = userName.value;
     let passedComment = userComment.value;
-    //date
-    let today = new Date();
-    let PassedDate = (today.getMonth()+1) + '/' + today.getDate()+ '/' + today.getFullYear();
-    //new object
-    let newUser =  {
-        name: passedName,
-        date: PassedDate,
-        comment: passedComment,
-    };
-    //add new user to existing object
-    userData.unshift(newUser);
-    console.log(newUser)
-    console.log(userData)
 
-    commentNewContainer.innerHTML = "";
-
-    uploadComments()
+    axios.post(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`, {
+        // headers: {'Content-Type': 'application/json'},
+        name: `${passedName}`,
+        comment: `${passedComment}`
+    })
+    .then(response => {
+        uploadComments(response);
+        commentNewContainer.innerHTML = "";
+        requestComments();
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
     userName.value = '';
     userComment.value = '';
 })
+
+
+
+
+
+
+
+
+
+
+// // Post comments to the API
+// axios.post("https://project-1-api.herokuapp.com/comments" + `?api_key=${apiKey}`, {
+//     name: 'Fred',
+//     comment: 'Flintstone'
+//   })
+//   .then(function (response) {
+//     console.log(response.data);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+
+
+
+
+// //Adds new comment
+// userSubmit.addEventListener('submit', e => {
+//     e.preventDefault();
+//     let passedName = userName.value;
+//     let passedComment = userComment.value;
+//     //date
+//     let today = new Date();
+//     let PassedDate = (today.getMonth()+1) + '/' + today.getDate()+ '/' + today.getFullYear();
+//     //new object
+//     let newUser =  {
+//         name: passedName,
+//         date: PassedDate,
+//         comment: passedComment,
+//     };
+//     //add new user to existing object
+//     userData.unshift(newUser);
+
+//     commentNewContainer.innerHTML = "";
+
+//     uploadComments()
+
+//     userName.value = '';
+//     userComment.value = '';
+// })
 

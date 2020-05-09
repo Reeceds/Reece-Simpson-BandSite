@@ -1,13 +1,13 @@
 
-@import 'global';
-@import 'variables';
-@import 'mixins';
-@import 'typography';
+@import './partials/global';
+@import './partials/variables';
+@import './partials/mixins';
+@import './partials/typography';
 
 
 // Hero
 .hero-homepage {
-    background-image: url('../assets/Images/jr-korpa-9XngoIpxcEo-unsplash.jpg');
+    background-image: linear-gradient(rgba(#323232, 0.5),rgba(#323232, 0.5)),url('../assets/Images/jr-korpa-9XngoIpxcEo-unsplash.jpg');
     height: 11.4375rem;
 
     @include mediaQ($tablet-width){
