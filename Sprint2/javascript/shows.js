@@ -51,7 +51,7 @@ let uploadShows = (show) => {
         showsDateContainer.appendChild(showsDateHeader);
         // Creates date
         let showsDate = document.createElement("h4");
-        showsDate.innerText = `${show.date}`;
+        showsDate.innerText = show.date;
         showsDateContainer.appendChild(showsDate);
 
         // Creates venue information container
@@ -65,7 +65,7 @@ let uploadShows = (show) => {
         showsVenueContainer.appendChild(showsVenueHeader);
         // Creates venue
         let showsVenue = document.createElement("p");
-        showsVenue.innerText = `${show.place}`;
+        showsVenue.innerText = show.place;
         showsVenueContainer.appendChild(showsVenue);
 
         // Creates location information container
@@ -79,7 +79,7 @@ let uploadShows = (show) => {
         showsLocationContainer.appendChild(showsLocationHeader);
         // Creates location 
         let showsLocation = document.createElement("p");
-        showsLocation.innerText = `${show.location}`;
+        showsLocation.innerText = show.location;
         showsLocationContainer.appendChild(showsLocation);
 
         // Creates form for button
@@ -96,7 +96,7 @@ let uploadShows = (show) => {
 }
 
 
-
+// **************
 // Requests API shows
 const requestShows = () => {
     axios.get("https://project-1-api.herokuapp.com/showdates?api_key=99510a2b-a1cf-4d45-8227-74f5e67d2ecd")
@@ -111,3 +111,4 @@ const requestShows = () => {
 }
 
 requestShows()
+// **************

@@ -9,7 +9,7 @@ let userSubmit = document.querySelector('.comment__form');
 
 
 //Load premaid API comments to the page
-let uploadComments = (eachUser) => {
+let displayComment = (eachUser) => {
     if (eachUser.name && eachUser.timestamp && eachUser.comment) {
         
         // Create container/class for each comment/details
@@ -59,26 +59,22 @@ let uploadComments = (eachUser) => {
 
 // **************
 // Requests API comments
-
 let apiKey = "99510a2b-a1cf-4d45-8227-74f5e67d2ecd";
 
 let = requestComments = () => {
-
   axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`)
   .then(response => {
     response.data.reverse().forEach(userData => {
-        uploadComments(userData);
-        console.log(response)
-        
+        displayComment(userData);
+        console.log(response.data)
     });
   })
   .catch(function (error) {
-    console.log(error);
+    return error;
   });
 };
 
 requestComments()
-
 // **************
 
 
@@ -88,72 +84,35 @@ userSubmit.addEventListener('submit', e => {
     e.preventDefault();
     let passedName = userName.value;
     let passedComment = userComment.value;
-
+    
+    if (passedName == "" && passedComment == ""){
+        console.log("error")
+    }   else {
+        // **************
+    // Post comments request
     axios.post(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`, {
-        // headers: {'Content-Type': 'application/json'},
-        name: `${passedName}`,
-        comment: `${passedComment}`
+        name: passedName,
+        comment: passedComment,
+    }, 
+    {
+        headers: {'Content-Type': 'application/json'}
     })
     .then(response => {
-        uploadComments(response);
+        displayComment(response);
         commentNewContainer.innerHTML = "";
         requestComments();
     })
     .catch(function (error) {
-        console.log(error);
+        return error;
     });
+    // **************
 
     userName.value = '';
     userComment.value = '';
+    }
+
+    
 })
 
 
-
-
-
-
-
-
-
-
-// // Post comments to the API
-// axios.post("https://project-1-api.herokuapp.com/comments" + `?api_key=${apiKey}`, {
-//     name: 'Fred',
-//     comment: 'Flintstone'
-//   })
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
-
-
-
-
-
-// //Adds new comment
-// userSubmit.addEventListener('submit', e => {
-//     e.preventDefault();
-//     let passedName = userName.value;
-//     let passedComment = userComment.value;
-//     //date
-//     let today = new Date();
-//     let PassedDate = (today.getMonth()+1) + '/' + today.getDate()+ '/' + today.getFullYear();
-//     //new object
-//     let newUser =  {
-//         name: passedName,
-//         date: PassedDate,
-//         comment: passedComment,
-//     };
-//     //add new user to existing object
-//     userData.unshift(newUser);
-
-//     commentNewContainer.innerHTML = "";
-
-//     uploadComments()
-
-//     userName.value = '';
-//     userComment.value = '';
-// })
 

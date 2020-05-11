@@ -68,6 +68,7 @@
         @include mediaQ($desktop-width){
             flex-direction: column;
             width: 50.25rem;
+            padding-top: 0.74rem;
         }
     }
 
