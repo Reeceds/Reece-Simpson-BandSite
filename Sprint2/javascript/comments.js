@@ -85,7 +85,7 @@ userSubmit.addEventListener('submit', e => {
     let passedName = userName.value;
     let passedComment = userComment.value;
     
-    if (passedName == "" && passedComment == ""){
+    if (passedName == "" || passedComment == ""){
         console.log("error")
     }   else {
         // **************
